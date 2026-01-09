@@ -38,8 +38,8 @@
         #search-builder-container {
             position: fixed;
             top: 10px;
-            right: 10px;
-            left: auto;
+            left: 10px;
+            right: auto;
             transform: none;
             background: var(--bg-primary);
             backdrop-filter: var(--glass-blur);
@@ -551,10 +551,9 @@
         container.style.top = `${newTop}px`;
     }
 
-    function dockToRightTop() {
+    function dockToLeftTop() {
         const rect = container.getBoundingClientRect();
-        const viewportWidth = window.innerWidth;
-        const newLeft = viewportWidth - rect.width - SNAP_MARGIN;
+        const newLeft = SNAP_MARGIN;
         const newTop = SNAP_MARGIN;
 
         container.style.right = 'auto';
@@ -576,7 +575,7 @@
         container.style.willChange = '';
         // Snap after dragging
         if (isMinimized) {
-            dockToRightTop();
+            dockToLeftTop();
         } else {
             snapToEdge();
         }
@@ -595,7 +594,7 @@
     minimizeBtn.textContent = '+';
     minimizeBtn.title = 'Expand';
     requestAnimationFrame(() => {
-        dockToRightTop();
+        dockToLeftTop();
         GM_setValue('searchBuilderLeft', container.style.left);
         GM_setValue('searchBuilderTop', container.style.top);
     });
@@ -623,7 +622,7 @@
         // Reposition after state change to adjust for new size
         requestAnimationFrame(() => {
             if (isMinimized) {
-                dockToRightTop();
+                dockToLeftTop();
             } else {
                 snapToEdge();
             }
