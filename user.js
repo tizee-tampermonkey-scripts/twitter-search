@@ -2,6 +2,8 @@
 // @name         Twitter/X Advanced Search Builder
 // @namespace    http://tampermonkey.net/
 // @version      2.0
+// @downloadURL  https://raw.githubusercontent.com/tizee-tampermonkey-scripts/twitter-search/main/user.js
+// @updateURL    https://raw.githubusercontent.com/tizee-tampermonkey-scripts/twitter-search/main/user.js
 // @description  Build advanced Twitter/X search queries via a polished UI with native search integration and draggable positioning.
 // @author       tizee
 // @match        https://twitter.com/*
